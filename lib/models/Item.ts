@@ -1,11 +1,10 @@
-import Link from 'next/link'
-import mongoose, { Schema, Document, Model } from 'mongoose'
+import mongoose, { Schema, Model } from 'mongoose'
 import { COLLECTIONS, type CollectionType } from '../item-types'
 
 export { COLLECTIONS, type CollectionType }
 
-
-export interface IItem extends Document {
+// Define the interface without extending Document to avoid type conflicts
+export interface IItem {
   title: string
   slug: string
   description: string
@@ -18,7 +17,12 @@ export interface IItem extends Document {
   updatedAt: Date
 }
 
-const ItemSchema: Schema = new Schema(
+// Define the complete document type
+export interface IItemDocument extends IItem, mongoose.Document {
+  _id: mongoose.Types.ObjectId
+}
+
+const ItemSchema = new Schema<IItemDocument>(
   {
     title: {
       type: String,
@@ -60,11 +64,10 @@ const ItemSchema: Schema = new Schema(
   }
 )
 
-// Create index for faster queries
+// Create index for faster queries (removed duplicate slug index since unique:true already creates one)
 ItemSchema.index({ category: 1, createdAt: -1 })
-ItemSchema.index({ slug: 1 })
 
 // Prevent model recompilation during hot reload
-const Item = (mongoose.models.Item as Model<IItem>) || mongoose.model<IItem>('Item', ItemSchema)
+const Item = (mongoose.models.Item as Model<IItemDocument>) || mongoose.model<IItemDocument>('Item', ItemSchema)
 
 export default Item
