@@ -21,6 +21,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: "Aura House of Flowers | Curated Artificial Floral Décor",
   description:
     "Premium distributor of curated artificial floral décor and botanical elements for modern interiors. Recognized for quality since 2008.",
