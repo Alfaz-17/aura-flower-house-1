@@ -1,13 +1,19 @@
-import mongoose, { Schema, Document, Model } from 'mongoose'
+import mongoose, { Schema, Model } from 'mongoose'
 
-export interface IAdminUser extends Document {
+// Define the interface without extending Document to avoid type conflicts
+export interface IAdminUser {
   email: string
   password: string
   role: string
   createdAt: Date
 }
 
-const AdminUserSchema: Schema = new Schema({
+// Define the complete document type
+export interface IAdminUserDocument extends IAdminUser, mongoose.Document {
+  _id: mongoose.Types.ObjectId
+}
+
+const AdminUserSchema = new Schema<IAdminUserDocument>({
   email: {
     type: String,
     required: [true, 'Email is required'],
@@ -31,7 +37,6 @@ const AdminUserSchema: Schema = new Schema({
 })
 
 // Prevent model recompilation during hot reload
-const AdminUser: Model<IAdminUser> =
-  mongoose.models.AdminUser || mongoose.model<IAdminUser>('AdminUser', AdminUserSchema)
+const AdminUser = (mongoose.models.AdminUser as Model<IAdminUserDocument>) || mongoose.model<IAdminUserDocument>('AdminUser', AdminUserSchema)
 
 export default AdminUser
