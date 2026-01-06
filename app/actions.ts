@@ -52,8 +52,8 @@ export async function createItem(formData: FormData) {
     }
   }
 
-  if (!title || !description || !collection) {
-    throw new Error('Title, description, and collection are required')
+  if (!title || !description || !category) {
+    throw new Error('Title, description, and category are required')
   }
 
   let slug = generateSlug(title)
@@ -130,7 +130,7 @@ export async function updateItem(id: string, formData: FormData) {
     }
   }
 
-  if (!title || !description || !collection) {
+  if (!title || !description || !category) {
     throw new Error('Title, description, and category are required')
   }
 

@@ -5,7 +5,8 @@ import { COLLECTIONS, type CollectionType } from '../item-types'
 export { COLLECTIONS, type CollectionType }
 
 
-export interface IItem extends Document {
+export interface IItem {
+  _id: string
   title: string
   slug: string
   description: string
@@ -47,7 +48,6 @@ const ItemSchema: Schema = new Schema(
     },
     price: {
       type: Number,
-      // ...
     },
     dimensions: {
       type: String,
@@ -66,6 +66,6 @@ ItemSchema.index({ category: 1, createdAt: -1 })
 ItemSchema.index({ slug: 1 })
 
 // Prevent model recompilation during hot reload
-const Item: Model<IItem> = mongoose.models.Item || mongoose.model<IItem>('Item', ItemSchema)
+const Item = (mongoose.models.Item as Model<IItem>) || mongoose.model<IItem>('Item', ItemSchema)
 
 export default Item
