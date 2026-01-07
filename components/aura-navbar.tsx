@@ -73,6 +73,7 @@ export function AuraNavbar() {
                                         <li key={index}>
                                             <Link
                                                 href={item.href}
+                                                prefetch={true}
                                                 className={cn(
                                                     "relative group block transition-colors duration-300",
                                                     isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
@@ -151,6 +152,7 @@ export function AuraNavbar() {
                                             >
                                                 <Link
                                                     href={item.href}
+                                                    prefetch={true}
                                                     onClick={() => setMenuState(false)}
                                                     className={cn(
                                                         "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-300",

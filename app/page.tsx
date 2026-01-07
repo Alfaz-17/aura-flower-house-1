@@ -185,6 +185,7 @@ export default function Home() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 
@@ -209,7 +210,8 @@ export default function Home() {
                 <Image 
                     src="/signature_series_detail.png" 
                     alt="Signature Detail" 
-                    fill 
+                    fill
+                    loading="lazy" 
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />

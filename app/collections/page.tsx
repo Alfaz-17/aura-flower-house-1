@@ -121,6 +121,7 @@ export default async function CollectionsPage() {
                   src={category.image || "/placeholder.svg"}
                   alt={category.title}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-1000 group-hover:scale-110 group-active:scale-105"
                 />
               </div>
