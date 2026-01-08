@@ -244,7 +244,7 @@ export default function Home() {
 
       {/* Wedding & Events Parallax-ish */}
       <section className="py-16 md:py-32 px-6 md:px-12 bg-white text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('/damask-pattern.png')] bg-repeat" />
+
           
           <div className="relative z-10 max-w-4xl mx-auto space-y-10">
                <div className="w-20 h-px bg-primary/30 mx-auto" />

@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { Menu, X, Instagram, Sparkles, Home, Layers, PenTool, Heart, Info } from 'lucide-react'
+import { Menu, X, Instagram, PenTool } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -133,13 +133,11 @@ export function AuraNavbar() {
                             className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background border-l border-border lg:hidden overflow-hidden"
                         >
                             
-                            <div className="relative flex flex-col h-full p-8 pt-28">
+                            <div className="relative flex flex-col h-full p-8 md:p-12 pt-32">
                                 {/* Navigation Links */}
-                                <nav className="flex-1 space-y-2">
+                                <nav className="flex-1 flex flex-col justify-center space-y-6">
                                     {menuItems.map((item, index) => {
                                         const isActive = pathname === item.href
-                                        const icons = [Home, Layers, Sparkles, Heart, Info]
-                                        const Icon = icons[index]
                                         
                                         return (
                                             <div key={index}>
@@ -148,32 +146,17 @@ export function AuraNavbar() {
                                                     prefetch={true}
                                                     onClick={() => setMenuState(false)}
                                                     className={cn(
-                                                        "group relative flex items-center gap-5 px-4 py-4 rounded-xl transition-all duration-300 overflow-hidden",
+                                                        "group flex items-center gap-4 text-3xl md:text-4xl font-serif tracking-tight transition-colors duration-300",
                                                         isActive 
-                                                            ? "text-primary bg-primary/5 border border-primary/10" 
-                                                            : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                                                            ? "text-primary" 
+                                                            : "text-muted-foreground hover:text-foreground"
                                                     )}
                                                 >
-                                                    <div className={cn(
-                                                        "relative z-10 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300",
-                                                        isActive 
-                                                            ? "bg-primary/10 text-primary" 
-                                                            : "bg-transparent text-muted-foreground group-hover:text-primary group-hover:bg-primary/5"
-                                                    )}>
-                                                        <Icon className="w-4 h-4" />
-                                                    </div>
-                                                    
                                                     <span className={cn(
-                                                        "relative z-10 text-sm tracking-[0.1em] uppercase font-medium transition-colors duration-300",
-                                                        isActive ? "font-semibold" : ""
-                                                    )}>
-                                                        {item.name}
-                                                    </span>
-
-                                                    {/* Elegant Active Indicator - Static */}
-                                                    {isActive && (
-                                                        <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-primary" />
-                                                    )}
+                                                        "h-px bg-primary transition-all duration-300",
+                                                        isActive ? "w-8" : "w-0 group-hover:w-4"
+                                                    )} />
+                                                    {item.name}
                                                 </Link>
                                             </div>
                                         )
@@ -181,39 +164,29 @@ export function AuraNavbar() {
                                 </nav>
 
                                 {/* Bottom Actions */}
-                                <div className="space-y-6 pt-8 mt-auto">
-                                    <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
+                                <div className="space-y-8 mt-auto">
+                                    <div className="h-px w-full bg-foreground/10" />
                                     
-                                    {/* Primary CTA */}
-                                    <Button
-                                        asChild
-                                        className="w-full justify-between gap-3 h-14 rounded-xl text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300"
-                                    >
-                                        <Link href="/contact">
-                                            <span className="pl-2">Book Consultation</span>
-                                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                                                <PenTool className="w-3.5 h-3.5" />
-                                            </div>
+                                    <div className="flex flex-col gap-6">
+                                        <Link 
+                                            href="/contact"
+                                            onClick={() => setMenuState(false)}
+                                            className="uppercase text-xs tracking-[0.2em] font-medium flex items-center justify-between hover:text-primary transition-colors"
+                                        >
+                                            Book Consultation
+                                            <PenTool className="w-4 h-4" />
                                         </Link>
-                                    </Button>
 
-                                    {/* Social Link - Minimalist */}
-                                    <Link 
-                                        href="https://www.instagram.com/aurahouseofflowers/" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-between group py-2"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary/30 text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                                                <Instagram className="w-4 h-4" />
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Follow Our Journey</span>
-                                                <span className="text-xs font-medium group-hover:text-primary transition-colors">@aurahouseofflowers</span>
-                                            </div>
-                                        </div>
-                                    </Link>
+                                        <Link 
+                                            href="https://www.instagram.com/aurahouseofflowers/" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="uppercase text-xs tracking-[0.2em] font-medium flex items-center justify-between hover:text-primary transition-colors"
+                                        >
+                                            Instagram
+                                            <Instagram className="w-4 h-4" />
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
