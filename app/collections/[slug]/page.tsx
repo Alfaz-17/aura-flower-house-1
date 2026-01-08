@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { BlurImage } from "@/components/ui/blur-image"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { ArrowLeft, Plus } from "lucide-react"
@@ -60,13 +59,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               <div key={item._id} className="group space-y-6">
                 <div className="aspect-[3/4] relative overflow-hidden bg-foreground/5">
                   <Link href={`/item/${item.slug}`}>
-                    <BlurImage
+                    <Image
                       src={item.images?.[0] || "/placeholder.svg"}
                       alt={item.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       quality={85}
-                      className="object-cover group-hover:scale-105"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </Link>
                   <Link href={`/item/${item.slug}`} className="absolute bottom-6 right-6 w-12 h-12 bg-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 shadow-lg hover:bg-foreground hover:text-background">
