@@ -3,65 +3,13 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { ChevronRight } from "lucide-react"
 
-const categories = [
-  {
-    title: "Artificial Flowers",
-    slug: "artificial-flowers",
-    image: "/minimal-botanical-arrangement-on-stone.jpg",
-    tagline: "Blooms that defy the seasons.",
-    description:
-      "High-quality artificial blooms designed to maintain their beauty year-round, bringing vibrant color and natural elegance to any space.",
-    count: "48 Curated Pieces",
-    priceRange: "",
-  },
-  {
-    title: "Artificial Green Plants",
-    slug: "artificial-green-plants",
-    image: "/luxury-interior-with-artificial-floral-installatio.jpg",
-    tagline: "Perpetual greenery without the demands.",
-    description:
-      "Maintenance-free botanical elements that provide the lush, refreshing look of real plants without watering, sunlight requirements, or upkeep.",
-    count: "36 Curated Pieces",
-    priceRange: "",
-  },
-  {
-    title: "Hanging Greenery",
-    slug: "hanging-greenery",
-    image: "/large-artificial-floral-installation-wall.jpg",
-    tagline: "Suspended elegance for living spaces.",
-    description:
-      "Transform vertical spaces with our curated selection of artificial hanging plants and cascading botanical elements that add depth and dimension to interiors.",
-    count: "24 Curated Pieces",
-    priceRange: "",
-  },
-  {
-    title: "Bonsai",
-    slug: "bonsai",
-    image: "/luxury-artificial-orchid-arrangement.jpg",
-    tagline: "Miniature contemplation in refined form.",
-    description:
-      "Artfully crafted artificial bonsai trees that capture the essence of this ancient art form, perfect for desks, shelves, and minimalist interiors.",
-    count: "12 Limited Editions",
-    priceRange: "",
-  },
-  {
-    title: "Décor Accessories",
-    slug: "decor-accessories",
-    image: "/ceramic-gradient-pot-minimal.jpg",
-    tagline: "Refined touches that complete the narrative.",
-    description:
-      "Complement your botanical collection with premium décor accessories designed to enhance and elevate your interior styling.",
-    count: "Custom Selection",
-    priceRange: "",
-  },
-]
-
 import { getItemsCount } from '@/app/actions'
 import { type CollectionType } from '@/lib/item-types'
+import { CATEGORIES } from '@/lib/collection-data'
 
 export default async function CollectionsPage() {
   const categoriesWithCounts = await Promise.all(
-    categories.map(async (cat) => {
+    CATEGORIES.map(async (cat) => {
       const count = await getItemsCount(cat.slug as CollectionType)
       return {
         ...cat,
@@ -86,8 +34,42 @@ export default async function CollectionsPage() {
         </div>
       </header>
 
+      {/* Process / Flow Clarity Section */}
+      <section className="px-6 md:px-12 pb-24">
+        <div className="max-w-screen-2xl mx-auto border-y border-foreground/10 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="space-y-4">
+               <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">01. Explore</span>
+               <h3 className="font-serif text-2xl">Browse Collections</h3>
+               <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
+                  Navigate through our curated categories below. From faux botanicals to architectural trees.
+               </p>
+            </div>
+            <div className="space-y-4">
+               <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">02. Select</span>
+               <h3 className="font-serif text-2xl">Choose & Inquire</h3>
+               <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
+                  Find the pieces that resonate with your space. Use the inquiry button or WhatsApp to check availability.
+               </p>
+            </div>
+             <div className="space-y-4">
+               <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">03. Curate</span>
+               <h3 className="font-serif text-2xl">Style & Delivery</h3>
+               <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
+                  Our team assists with final styling advice. We package and deliver your selections with care.
+               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Categories Grid */}
-      <section className="px-6 md:px-12 pb-48">
+      <section id="categories" className="px-6 md:px-12 pb-48">
+        <div className="max-w-screen-2xl mx-auto mb-16">
+           <h2 className="font-serif text-3xl md:text-4xl text-primary">Explore Categories</h2>
+           <div className="w-24 h-px bg-primary/20 mt-4" />
+        </div>
+
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/10 border-y border-foreground/10">
           {categoriesWithCounts.map((category) => (
             <Link

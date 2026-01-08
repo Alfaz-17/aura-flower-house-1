@@ -9,9 +9,15 @@ import { COLLECTIONS, type CollectionType } from '@/lib/item-types'
 // Enable ISR - revalidate every hour
 export const revalidate = 3600
 
+import { CATEGORIES } from '@/lib/collection-data'
+
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const title = slug.charAt(0).toUpperCase() + slug.slice(1).replace("-", " ")
+  
+  // Find category info
+  const categoryInfo = CATEGORIES.find(c => c.slug === slug)
+  const title = categoryInfo?.title || slug.charAt(0).toUpperCase() + slug.slice(1).replace("-", " ")
+  const description = categoryInfo?.description || "Each piece is carefully curated for material realism and spatial harmony. Perfect for interior designers, architects, and discerning homeowners."
   
   // Validate slug is a valid collection type, otherwise default or handle 404 behavior if desired
   // For now we pass it, but safely cast or check if it matches types
@@ -31,8 +37,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div className="space-y-4">
               <h1 className="font-serif text-4xl md:text-6xl text-primary">{title}</h1>
               <p className="text-sm text-muted-foreground font-light max-w-xl leading-relaxed">
-                Each piece is carefully curated for material realism and spatial harmony. Perfect for interior
-                designers, architects, and discerning homeowners.
+                {description}
               </p>
             </div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mb-2">
@@ -63,9 +68,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                       className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </Link>
-                  <button className="absolute bottom-6 right-6 w-12 h-12 bg-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 shadow-lg hover:bg-foreground hover:text-background">
+                  <Link href={`/item/${item.slug}`} className="absolute bottom-6 right-6 w-12 h-12 bg-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 shadow-lg hover:bg-foreground hover:text-background">
                     <Plus size={20} strokeWidth={1.5} />
-                  </button>
+                  </Link>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
