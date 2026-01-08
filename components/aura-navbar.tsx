@@ -128,7 +128,7 @@ export function AuraNavbar() {
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
-                            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                            transition={{ ease: "easeInOut", duration: 0.3 }}
                             className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background border-l border-border shadow-2xl lg:hidden overflow-hidden"
                         >
                             
@@ -141,12 +141,7 @@ export function AuraNavbar() {
                                         const Icon = icons[index]
                                         
                                         return (
-                                            <motion.div
-                                                key={index}
-                                                initial={{ opacity: 0, x: 20 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.1 + index * 0.05, duration: 0.4 }}
-                                            >
+                                            <div key={index}>
                                                 <Link
                                                     href={item.href}
                                                     prefetch={true}
@@ -154,19 +149,10 @@ export function AuraNavbar() {
                                                     className={cn(
                                                         "group relative flex items-center gap-5 px-4 py-4 rounded-xl transition-all duration-300 overflow-hidden",
                                                         isActive 
-                                                            ? "text-primary" 
+                                                            ? "text-primary bg-primary/5 border border-primary/10" 
                                                             : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                                                     )}
                                                 >
-                                                    {/* Active Background highlight */}
-                                                    {isActive && (
-                                                        <motion.div
-                                                            layoutId="sidebar-active"
-                                                            className="absolute inset-0 bg-primary/5 border border-primary/10 rounded-xl"
-                                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                                        />
-                                                    )}
-
                                                     <div className={cn(
                                                         "relative z-10 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300",
                                                         isActive 
@@ -183,23 +169,18 @@ export function AuraNavbar() {
                                                         {item.name}
                                                     </span>
 
-                                                    {/* Elegant Active Indicator */}
+                                                    {/* Elegant Active Indicator - Static */}
                                                     {isActive && (
                                                         <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
                                                     )}
                                                 </Link>
-                                            </motion.div>
+                                            </div>
                                         )
                                     })}
                                 </nav>
 
                                 {/* Bottom Actions */}
-                                <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4, duration: 0.6 }}
-                                    className="space-y-6 pt-8 mt-auto"
-                                >
+                                <div className="space-y-6 pt-8 mt-auto">
                                     <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent opacity-50" />
                                     
                                     {/* Primary CTA */}
@@ -232,7 +213,7 @@ export function AuraNavbar() {
                                             </div>
                                         </div>
                                     </Link>
-                                </motion.div>
+                                </div>
                             </div>
                         </motion.div>
                     </>
