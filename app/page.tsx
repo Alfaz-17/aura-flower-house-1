@@ -12,8 +12,8 @@ export default function Home() {
       {/* Brand Values / Trust Section - Dynamic & Engaging */}
       <section className="py-16 md:py-32 px-6 md:px-12 bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl hidden md:block" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl hidden md:block" />
         
         <div className="max-w-screen-xl mx-auto relative z-10">
           {/* Section Header */}
@@ -33,7 +33,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block" />
               <div className="relative h-full p-10 rounded-[2rem] bg-white border border-border shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 space-y-6">
                 {/* Number Badge */}
                 <div className="flex items-start justify-between">
@@ -62,7 +62,7 @@ export default function Home() {
 
             {/* Card 2 */}
             <div className="group relative md:mt-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block" />
               <div className="relative h-full p-10 rounded-[2rem] bg-white border border-border shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 space-y-6">
                 {/* Number Badge */}
                 <div className="flex items-start justify-between">
@@ -91,7 +91,7 @@ export default function Home() {
 
             {/* Card 3 */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block" />
               <div className="relative h-full p-10 rounded-[2rem] bg-white border border-border shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 space-y-6">
                 {/* Number Badge */}
                 <div className="flex items-start justify-between">

@@ -85,38 +85,28 @@ export function AuraHeroSection() {
                 {/* Visual Content - Cinematic Frame with Advanced Animations */}
                 <motion.div 
                     suppressHydrationWarning
-                    style={{ perspective: "2000px", transformStyle: "preserve-3d" }}
-                    initial={{ opacity: 0, scale: 0.9, rotateY: -15, filter: "blur(20px)" }}
-                    animate={{ 
-                        opacity: 1, 
-                        scale: 1, 
-                        rotateY: 0,
-                        filter: "blur(0px)",
-                        y: [0, -20, 0]
-                    }}
-                    transition={{ 
-                        duration: 1.2, 
-                        ease: "easeOut",
-                        y: {
-                            duration: 4,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }
-                    }}
-                    whileHover={{
-                        rotateY: 5,
-                        rotateX: 5,
-                        scale: 1.02,
-                        transition: { duration: 0.5 }
-                    }}
-                    className="relative mt-12 lg:mt-0"
+                    className="relative mt-12 lg:mt-0 perspective-container"
                 >
+                    <motion.div
+                         style={{ perspective: "2000px", transformStyle: "preserve-3d" }}
+                         initial={{ opacity: 0, scale: 0.9 }}
+                         animate={{ 
+                             opacity: 1, 
+                             scale: 1, 
+                             rotateY: 0,
+                         }}
+                         transition={{ 
+                             duration: 1.2, 
+                             ease: "easeOut",
+                         }}
+                         className="relative w-full"
+                    >
                     <div className="relative aspect-[4/5] md:aspect-[3.5/4] lg:aspect-[4/5] w-full max-w-xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/20 border-[8px] border-white ring-1 ring-black/5 group">
                         
                         {/* The Cinematic Image with Enhanced Zoom + Parallax */}
                         <motion.div 
                             className="relative w-full h-full overflow-hidden"
-                            whileHover={{ scale: 1.15 }}
+                            whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
                         >
                              <Image
@@ -129,9 +119,9 @@ export function AuraHeroSection() {
                                 priority
                             />
                             
-                            {/* Animated Shimmer Effect */}
+                            {/* Animated Shimmer Effect - Desktop Only */}
                             <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent hidden lg:block"
                                 initial={{ x: "-100%" }}
                                 animate={{ x: "200%" }}
                                 transition={{
@@ -145,18 +135,17 @@ export function AuraHeroSection() {
 
                         {/* Cinematic Vignette Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent opacity-40 pointer-events-none" />
                         
-                        {/* Glowing Border Effect on Hover */}
+                        {/* Glowing Border Effect on Hover - Desktop Only */}
                         <motion.div 
-                            className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                            className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"
                             style={{
                                 boxShadow: "inset 0 0 40px rgba(255,255,255,0.3), 0 0 60px rgba(167,139,250,0.4)"
                             }}
                         />
 
-                         {/* Floating Particles Effect */}
-                        <div className="absolute inset-0 pointer-events-none" suppressHydrationWarning>
+                         {/* Floating Particles Effect - Desktop Only */}
+                        <div className="absolute inset-0 pointer-events-none hidden lg:block" suppressHydrationWarning>
                             {[...Array(5)].map((_, i) => (
                                 <motion.div
                                     key={i}
@@ -182,10 +171,11 @@ export function AuraHeroSection() {
                         </div>
                        
                     </div>
+                    </motion.div>
                     
-                    {/* Enhanced Abstract Floating Orbs with Animation */}
+                    {/* Enhanced Abstract Floating Orbs - Desktop Only */}
                     <motion.div 
-                        className="absolute -bottom-16 -right-16 w-64 h-64 bg-accent/20 rounded-full blur-[80px] -z-10 mix-blend-multiply"
+                        className="absolute -bottom-16 -right-16 w-64 h-64 bg-accent/20 rounded-full blur-[80px] -z-10 mix-blend-multiply hidden lg:block"
                         animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.2, 0.4, 0.2]
@@ -197,7 +187,7 @@ export function AuraHeroSection() {
                         }}
                     />
                     <motion.div 
-                        className="absolute -top-16 -left-16 w-64 h-64 bg-secondary/30 rounded-full blur-[80px] -z-10 mix-blend-multiply"
+                        className="absolute -top-16 -left-16 w-64 h-64 bg-secondary/30 rounded-full blur-[80px] -z-10 mix-blend-multiply hidden lg:block"
                         animate={{
                             scale: [1, 1.3, 1],
                             opacity: [0.3, 0.5, 0.3]
@@ -207,19 +197,6 @@ export function AuraHeroSection() {
                             repeat: Infinity,
                             ease: "easeInOut",
                             delay: 0.5
-                        }}
-                    />
-                    
-                    {/* Additional Depth Layer */}
-                    <motion.div 
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 rounded-[2.5rem] blur-3xl -z-20"
-                        animate={{
-                            rotate: [0, 360],
-                        }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear"
                         }}
                     />
                 </motion.div>

@@ -129,11 +129,8 @@ export function AuraNavbar() {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-                            className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background/80 backdrop-blur-3xl border-l border-white/10 shadow-[0_0_50px_-12px_rgba(0,0,0,0.25)] lg:hidden overflow-hidden"
+                            className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background border-l border-border shadow-2xl lg:hidden overflow-hidden"
                         >
-                            {/* Ambient Background Glow */}
-                            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-                            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
                             
                             <div className="relative flex flex-col h-full p-8 pt-28">
                                 {/* Navigation Links */}
