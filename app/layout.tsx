@@ -54,6 +54,8 @@ export const metadata: Metadata = {
   },
 }
 
+import NextTopLoader from 'nextjs-toploader'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased overflow-x-hidden">
+        <NextTopLoader color="#000000" height={3} showSpinner={false} shadow="0 0 10px #000000,0 0 5px #000000" />
         <Providers>
           <AuraNavbar />
           {children}

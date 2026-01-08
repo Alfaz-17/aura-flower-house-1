@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center flex flex-col items-center">
           <Image 
-            src="/AuraLogo.png" 
+            src="/logo.png" 
             alt="Aura Admin" 
             width={150} 
             height={150} 
