@@ -121,15 +121,16 @@ export function AuraNavbar() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-40 bg-background/20 backdrop-blur-sm lg:hidden"
+                            transition={{ duration: 0.2 }}
+                            className="fixed inset-0 z-40 bg-background/80 lg:hidden"
                             onClick={() => setMenuState(false)}
                         />
                         <motion.div
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
-                            transition={{ ease: "easeInOut", duration: 0.3 }}
-                            className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background border-l border-border shadow-2xl lg:hidden overflow-hidden"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="fixed top-0 right-0 z-40 h-screen w-[85%] max-w-sm bg-background border-l border-border lg:hidden overflow-hidden"
                         >
                             
                             <div className="relative flex flex-col h-full p-8 pt-28">
@@ -171,7 +172,7 @@ export function AuraNavbar() {
 
                                                     {/* Elegant Active Indicator - Static */}
                                                     {isActive && (
-                                                        <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
+                                                        <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-primary" />
                                                     )}
                                                 </Link>
                                             </div>
@@ -186,7 +187,7 @@ export function AuraNavbar() {
                                     {/* Primary CTA */}
                                     <Button
                                         asChild
-                                        className="w-full justify-between gap-3 h-14 rounded-xl text-xs uppercase tracking-[0.15em] font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
+                                        className="w-full justify-between gap-3 h-14 rounded-xl text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300"
                                     >
                                         <Link href="/contact">
                                             <span className="pl-2">Book Consultation</span>
