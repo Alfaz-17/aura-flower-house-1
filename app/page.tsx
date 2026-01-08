@@ -10,7 +10,7 @@ export default function Home() {
       <AuraHeroSection />
 
       {/* Brand Values / Trust Section - Dynamic & Engaging */}
-      <section className="py-32 px-6 md:px-12 bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
+      <section className="py-16 md:py-32 px-6 md:px-12 bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* Featured Collection: Rounded Cards & Soft Shadows */}
-      <section className="py-24 px-6 md:px-12 bg-secondary/30">
+      <section className="py-12 md:py-24 px-6 md:px-12 bg-secondary/30">
         <div className="max-w-screen-2xl mx-auto space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <div className="space-y-4">
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Wedding & Events Parallax-ish */}
-      <section className="py-32 px-6 md:px-12 bg-white text-center relative overflow-hidden">
+      <section className="py-16 md:py-32 px-6 md:px-12 bg-white text-center relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] bg-[url('/damask-pattern.png')] bg-repeat" />
           
           <div className="relative z-10 max-w-4xl mx-auto space-y-10">
@@ -268,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* CTA Footer Wrapper */}
-      <section className="py-24 px-6 md:px-12 bg-background border-t border-border">
+      <section className="py-12 md:py-24 px-6 md:px-12 bg-background border-t border-border">
          <div className="max-w-5xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 text-center text-primary-foreground relative overflow-hidden shadow-2xl shadow-primary/20">
              
              {/* Abstract circles */}

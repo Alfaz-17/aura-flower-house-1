@@ -44,7 +44,7 @@ export function AuraHeroSection() {
                             </span>
                         </div>
 
-                        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.15] text-primary tracking-tight">
+                        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.15] text-primary tracking-tight">
                             🌸 Botanical elegance & <br/>
                             <span className="italic font-light text-foreground/90">timeless design</span>
                         </h1>

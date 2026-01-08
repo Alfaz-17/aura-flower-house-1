@@ -39,20 +39,20 @@ export function AuraNavbar() {
         <header>
             <nav
                 data-state={menuState && 'active'}
-                className="fixed z-50 w-full px-2 group">
-                <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12 bg-background/70 backdrop-blur-md rounded-2xl border border-primary/10', isScrolled && 'bg-background/95 max-w-4xl backdrop-blur-xl lg:px-5')}>
+                className="fixed z-50 w-full px-0 lg:px-2 group">
+                <div className={cn('mx-auto lg:mt-2 max-w-6xl transition-all duration-300 px-4 lg:px-12 bg-background/70 backdrop-blur-md lg:rounded-2xl border-b lg:border border-primary/10', isScrolled && 'bg-background/95 lg:max-w-4xl backdrop-blur-xl lg:px-5')}>
                     <div className="relative flex flex-wrap items-center justify-between gap-6 py-0 lg:gap-0 lg:py-0">
                         <div className="flex w-full justify-between lg:w-auto">
                             <Link
                                 href="/"
                                 aria-label="home"
-                                className="flex items-center space-x-3 -my-6">
+                                className="flex items-center space-x-3">
                                 <Image 
                                     src="/logo.png" 
                                     alt="Aura House of Flowers" 
-                                    width={280} 
-                                    height={100} 
-                                    className="h-30 w-auto object-contain my-[-10] p-0 drop-shadow-md"
+                                    width={180} 
+                                    height={65} 
+                                    className="h-16 w-auto object-contain drop-shadow-md"
                                 />
                             </Link>
 
