@@ -1,5 +1,7 @@
 import { getItemBySlug, getItems } from '@/app/actions'
+
 import Image from 'next/image'
+import { BlurImage } from '@/components/ui/blur-image'
 import Link from 'next/link'
 import { Footer } from '@/components/footer'
 import { ArrowLeft, Plus } from 'lucide-react'
@@ -42,7 +44,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
                 <div className="grid grid-cols-2 gap-4">
                   {item.images.map((image: string, idx: number) => (
                     <div key={idx} className="aspect-[3/4] relative overflow-hidden bg-foreground/5">
-                      <Image
+                      <BlurImage
                         src={image}
                         alt={`${item.title} - Image ${idx + 1}`}
                         fill
